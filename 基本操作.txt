@@ -1,0 +1,32 @@
+git init      		初始化一个仓库
+
+git add name   将文件添加到缓存区
+git add .           将工作区全部文件添加到缓存区
+git commit -m 'xxxxxx'   			将暂存区的文件提交到本体仓库
+git commit --all -m 'xxxxxx'     跳过暂存区直接全部提交到本体仓库
+git status     查看文件状态
+
+
+#查看提交记录
+git log  	查看全部提交记录
+git log --oneline   简洁一行显示
+git config alias.logg "log --allow-empty --oneline --decorate --graph"
+别名使用形式： git logg   
+
+git reflog   列出所有版本切换的记录：可以看到所有提交的版本号
+
+#回退到之前版本
+git reset --hard  Head~0  回退到上一次的版本  如果是1 就是上上一次的版本
+git reset --hard  46b6621 回退到某个版本
+
+
+#分支
+默认有一个主分支master
+git branch name   创建新分支
+git branch   查看所有分支
+git checkout name   切换到其他分支
+git merge name  合并分支    一般要先切换到主分支再合并
+
+git branch -d name 删除指定分支
+
+#push 到github远程服务器
