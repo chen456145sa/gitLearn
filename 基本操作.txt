@@ -4,6 +4,8 @@ git add name   将文件添加到缓存区
 git add .           将工作区全部文件添加到缓存区
 git commit -m 'xxxxxx'   			将暂存区的文件提交到本体仓库
 git commit --all -m 'xxxxxx'     跳过暂存区直接全部提交到本体仓库
+	如果进入编辑页面 可以先按esc 在输入：q 或：q ！就可以退出了
+	
 git status     查看文件状态
 
 
@@ -29,4 +31,31 @@ git merge name  合并分支    一般要先切换到主分支再合并
 
 git branch -d name 删除指定分支
 
+
 #push 到github远程服务器
+git push  https://github.com/chen456145sa/gitLearn.git master  
+将当前分支提交到github仓库的master分支上
+注意：修改提交之前 如果github上的版本比自己的更高 必须先pull下来 修改改冲突后再push上去
+总之: 先pull 再 push
+
+#pull 到本地
+git pull https://github.com/chen456145sa/gitLearn.git  master 
+将远程仓库下载到本地的master分支
+git clone https://github.com/chen456145sa/gitLearn.git  第一次拿的时候会使用clone  
+
+
+#ssh方式上传代码 
+由于使用http形式的方式上传代码要使用用户名和密码 这种形式一般只能自己使用
+ssh方式上传代码 保证了限制其他人上传 不是每个人都可以上传的  只有在github的仓库中设置了公匙的用户才能上传
+
+用户公匙的生成方式：
+ssh-keygen -t rsa -C "邮箱" 
+接下来的操作一般直接回车就行
+默认公匙存储在c/users/用户名/.ssh/id-rsa.pub 下   找到打开复制即可
+找到公匙后 在github上的Settings 设置 即可通过ssh的方式上传数据
+
+
+#地址别名
+git remote add name git@github.com:chen456145sa/test-ssh.git  将仓库地址起个别名
+git push/pull name master   
+git push/pull name -u master 关联GitHub的master分支 下次push/pull时 直接 git push 就可以拿到master分支的东西了
